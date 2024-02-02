@@ -1,0 +1,43 @@
+<div class="container">
+    <label for="ID">ID CLIENTE</label>
+    <select id="ID-select">
+      <option>Selecione</option>
+      <option value="client1">Client 1</option>
+      <option value="client2">Client 2</option>
+      <option value="client3">Client 3</option>
+    </select>
+  
+    <label for="vlan">VLAN</label>
+    <select id="vlan-select">
+      <option>Selecione</option>
+      <option value="2307" data-client="client1">VLAN 2307 - Available</option>
+      <option value="2309" data-client="client2">VLAN 2309 - Available</option>
+      <option value="2311" data-client="client3">VLAN 2311 - Available</option>
+      <option value="2318" data-client="client1">VLAN 2318 - Available</option>
+      <option value="2323" data-client="client2">VLAN 2323 - Available</option>
+      <option value="2322" data-client="client3">VLAN 2322 - Available</option>
+      <option value="2326" data-client="client1">VLAN 2326 - Available</option>
+      <option value="2322" data-client="client3">VLAN 2322 - Available</option>
+    </select>
+  </div>
+  
+  <script>
+    // Get the <select> elements
+    const IDSelect = document.getElementById('ID-select');
+    const vlanSelect = document.getElementById('vlan-select');
+  
+    // Listen for changes to the ID <select> element
+    IDSelect.addEventListener('change', () => {
+      // Get the selected ID client
+      const selectedID = IDSelect.value;
+  
+      // Filter the options in the VLAN <select> element based on the selected ID client
+      const filteredOptions = Array.from(vlanSelect.options).filter(option => option.dataset.client === selectedID);
+  
+      // Clear the current options in the VLAN <select> element
+      vlanSelect.innerHTML = '';
+  
+      // Add the filtered options to the VLAN <select> element
+      filteredOptions.forEach(option => vlanSelect.appendChild(option));
+    });
+  </script>

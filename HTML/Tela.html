@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
+    <link rel="icon" href="/Img/surfix-icon.png">
+    <title>Surfix®</title>
+    <style>
+        main {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+        .logo-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content:center;
+        }
+        #logo {
+        height: 80px; 
+        }
+        .container {
+            background-color: #fff;
+            height: 55%;
+            width: 25%;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        h1 {
+            color: #0e0d0d;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #0e0d0d;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .actions {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .action-button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            list-style-type: none;
+            width: 75%;
+            margin:0;
+            padding: 0;
+            top: 35px;
+            visibility: hidden;
+            position: absolute;
+        }
+        .options-list li a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .options-list li a:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="logo-wrapper"> 
+                <img src="/Img/logo.png" alt="Logo" id="logo" />            
+            </div>
+            <h1>Bem-vindo</h1>
+            <p>Qual a ação desejada?</p>
+            <div class="actions">
+                <button class="action-button" id="show-options-button">Clique aqui</button>
+                <ul class="options-list" id="options-list">
+                    <li><a href="/HTML/Criar.html">Criar</a></li>
+                    <li><a href="#">Deletar</a></li>
+                    <li><a href="#">Atualizar</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <script>
+        const showOptionsButton = document.getElementById('show-options-button');
+        const optionsList = document.getElementById('options-list');
+
+        showOptionsButton.addEventListener('click', () => {
+            if (optionsList.style.visibility === 'hidden') {
+                optionsList.style.visibility = 'visible';  
+            } else {
+                optionsList.style.visibility = 'hidden';
+            }
+        });
+    </script>
+</body>
+</html>

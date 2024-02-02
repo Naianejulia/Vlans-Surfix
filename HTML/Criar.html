@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" href="/Img/surfix-icon.png">
+    <title>Surfix®</title>
+    <style>
+        body {
+            font-family: 'Heebo', sans-serif;
+        }
+        .logo{
+            width: 10%;
+
+        }
+        .container {
+            display: flex;
+            grid-template-columns: 1fr;
+            grid-gap: 8px;
+            padding: 30px;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .create-button {
+            background-color: rgba(0, 0, 0, 0);
+            padding: 5px 10px;
+            font-size: 16px;
+            /* cursor: pointer; */
+            border-radius: 5px;
+            width: 15%;
+            margin: 10px;
+        }
+        #appearance-select{
+         -webkit-appearance: none;
+         -moz-appearance: none;
+         appearance: none;
+         background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #eeeeee;
+         background-position: 218px center;
+         width: 250px;
+         height: 30px;
+         border: 1px solid #ddd;
+        }
+        #vlan-select {
+        -webkit-appearance: none;
+         -moz-appearance: none;
+         appearance: none;
+         background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #eeeeee;
+         background-position: 218px center;
+         width: 250px;
+         height: 30px;
+         border: 1px solid #ddd;
+        }
+        #ID-select{ 
+        -webkit-appearance: none;
+         -moz-appearance: none;
+         appearance: none;
+         background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #eeeeee;
+         background-position: 218px center;
+         width: 250px;
+         height: 30px;
+         border: 1px solid #ddd;
+        }
+        .container label{ 
+            display: flex;
+            margin-left: 5%;
+        }
+        .icon {
+            display: inline-block;
+            margin-left: 100px;
+            font-size: 1.0em;
+            line-height: 1;
+            border-radius: 50%;
+            background-color: rgb(5, 5, 5);
+            color: #fff;
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <img src="/Img/logo.png" alt="Logo" id="logo" /> -->
+    <!-- <div class="container">
+        <label for="ID">ID CLIENTE</label>
+        <select id="appearance-select">
+            <option>Selecione</option>
+            <option>Primeira opção</option>
+            <option>Segunda opção</option>
+            <option>Terceira opção</option>
+
+         </select> -->
+        </div>
+        <div class="container">
+            <label for="ID">PROVEDOR</label>
+                <select id="ID-select">
+                <option>Selecione</option>
+                <option>BBG</option>
+                <option>EMFIBRA</option>
+                <option>UNICA TELECOM</option>
+                <option>INTEXNET</option>
+                </select>
+             </select>
+            </div>
+        <div class="container">
+            <label for="vlan">VLAN</label>
+            <select id="vlan-select">
+                <option>Selecione</option>
+                <option value="2307" data-client="BBG">VLAN 2307 - Available</option>
+                <option value="2309" data-client="BBG">VLAN 2309 - Available</option>
+                <option value="2311" data-client="BBG">VLAN 2311 - Available</option>
+                <option value="2318" data-client="EMFIBRA">VLAN 2318 - Available</option>
+                <option value="2323" data-client="BBG">VLAN 2323 - Available</option>
+                <option value="2322" data-client="INTEXNET">VLAN 2322 - Available</option>
+                <option value="2326" data-client="BBG">VLAN 2326 - Available</option>
+                <option value="2322" data-client="EMFIBRA">VLAN 2322 - Available</option>
+                </select>
+             </select>
+        </div>
+        </div>
+        <div class="container">
+        <label for="circuito">CIRCUITO IP</label>
+        <select id="appearance-select">
+            <option>Selecione</option>
+            <option>Primeira opção</option>
+            <option>Segunda opção</option>
+            <option>Terceira opção</option>
+         </select>
+        <button class="create-button" type="button">Criar<span class="icon">+</span></button>
+    </div>
+    <script>
+        document.querySelector(".create-button").addEventListener("click", createCircuit);
+
+        function createCircuit() {
+
+            alert("Circuito criado com sucesso!");
+        }
+
+    const IDSelect = document.getElementById('ID-select');
+    const vlanSelect = document.getElementById('vlan-select');
+  
+    IDSelect.addEventListener('change', () => {
+
+      const selectedID = IDSelect.value;
+  
+    
+      const filteredOptions = Array.from(vlanSelect.options).filter(option => option.dataset.client === selectedID);
+  
+
+      vlanSelect.innerHTML = '';
+  
+      filteredOptions.forEach(option => vlanSelect.appendChild(option));
+    });
+  </script>
+</body>
+</html>
