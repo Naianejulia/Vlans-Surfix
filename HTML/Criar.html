@@ -20,9 +20,10 @@
             display: flex;
             grid-template-columns: 1fr;
             grid-gap: 8px;
-            padding: 30px;
+            padding: 10px;
             justify-content: center;
             flex-direction: column;
+            align-items: center;
         }
         .create-button {
             background-color: rgba(0, 0, 0, 0);
@@ -53,7 +54,7 @@
          height: 30px;
          border: 1px solid #ddd;
         }
-        #ID-select{ 
+        #parceiro-select{ 
         -webkit-appearance: none;
          -moz-appearance: none;
          appearance: none;
@@ -63,8 +64,9 @@
          height: 30px;
          border: 1px solid #ddd;
         }
-        .container label{ 
+        .label{ 
             display: flex;
+            justify-content: left;
             margin-left: 5%;
         }
         .icon {
@@ -90,41 +92,46 @@
             <option>Terceira opção</option>
 
          </select> -->
+        <div class="container">
+            <label for="ID">ID Cliente</label>
+            <input type="text" id="Name" name="Name" size="30">
         </div>
         <div class="container">
-            <label for="ID">PROVEDOR</label>
-                <select id="ID-select">
+            <label for="vlan">PARCEIRO</label>
+            <select id="parceiro-select">
                 <option>Selecione</option>
                 <option>BBG</option>
                 <option>EMFIBRA</option>
                 <option>UNICA TELECOM</option>
                 <option>INTEXNET</option>
+            </select>
+                <label for="vlan">VLAN</label>
+                <select id="vlan-select">
+                    <option>Selecione</option>
+                    <option value="2307" data-client="BBG">VLAN 2307 - Available</option>
+                    <option value="2309" data-client="BBG">VLAN 2309 - Available</option>
+                    <option value="2311" data-client="BBG">VLAN 2311 - Available</option>
+                    <option value="2318" data-client="EMFIBRA">VLAN 2318 - Available</option>
+                    <option value="2323" data-client="BBG">VLAN 2323 - Available</option>
+                    <option value="2322" data-client="INTEXNET">VLAN 2322 - Available</option>
+                    <option value="2326" data-client="BBG">VLAN 2326 - Available</option>
+                    <option value="2322" data-client="EMFIBRA">VLAN 2322 - Available</option>
                 </select>
-             </select>
-            </div>
-        <div class="container">
-            <label for="vlan">VLAN</label>
-            <select id="vlan-select">
-                <option>Selecione</option>
-                <option value="2307" data-client="BBG">VLAN 2307 - Available</option>
-                <option value="2309" data-client="BBG">VLAN 2309 - Available</option>
-                <option value="2311" data-client="BBG">VLAN 2311 - Available</option>
-                <option value="2318" data-client="EMFIBRA">VLAN 2318 - Available</option>
-                <option value="2323" data-client="BBG">VLAN 2323 - Available</option>
-                <option value="2322" data-client="INTEXNET">VLAN 2322 - Available</option>
-                <option value="2326" data-client="BBG">VLAN 2326 - Available</option>
-                <option value="2322" data-client="EMFIBRA">VLAN 2322 - Available</option>
-                </select>
-             </select>
         </div>
-        </div>
-        <div class="container">
+        <div class="container">    
         <label for="circuito">CIRCUITO IP</label>
         <select id="appearance-select">
             <option>Selecione</option>
             <option>Primeira opção</option>
             <option>Segunda opção</option>
             <option>Terceira opção</option>
+        </select>
+        <label for="circuito">VELOCIDADE</label>
+         </select><select id="appearance-select">
+            <option>Selecione</option>
+            <option>Primeira opção</option>
+            <option>Segunda opção</option>
+            <option>Terceira opção</option>          
          </select>
         <button class="create-button" type="button">Criar<span class="icon">+</span></button>
     </div>
@@ -136,10 +143,11 @@
             alert("Circuito criado com sucesso!");
         }
 
-    const IDSelect = document.getElementById('ID-select');
     const vlanSelect = document.getElementById('vlan-select');
-  
+    const IDSelect = document.getElementById('parceiro-select');
+    
     IDSelect.addEventListener('change', () => {
+      
 
       const selectedID = IDSelect.value;
   
